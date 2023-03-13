@@ -198,87 +198,13 @@ function optionCards(element){
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
-cards.forEach(element => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-
-    const cardIcon = document.createElement('div');
-    cardIcon.classList.add('card-icon');
-    cardIcon.style.color = `${element.color}`
-    cardIcon.innerHTML = `<i class="fa-solid ${element.prefix}${element.name}"></i>`;
-
-    const cardName = document.createElement('div');
-    cardName.classList.add('card-name');
-    cardName.innerHTML = `${element.name}`;
-
-    card.append(cardIcon);
-    card.append(cardName);
-    cardBoxDom.innerHTML = (card);
+function setColor(){
+  const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  return randomColor;
+}
 */
+
 
     
 

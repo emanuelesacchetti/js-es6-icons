@@ -112,24 +112,90 @@ const cards = [
 		color: 'blue'
 	}
 ];
-console.log(cards.length);
+
 const selettore = document.getElementById('select');
-let cardBoxDom = document.querySelector('.card-box');
+const cardBoxDom = document.querySelector('.card-box');
 
 
 cards.forEach(element => {
-    const card =  `<div class="card">
+    const card = newCard(element);
+    cardBoxDom.innerHTML += card;
+});
+
+selettore.addEventListener('change', function(){
+
+    if(this.value == 'animal'){
+        cardBoxDom.innerHTML = '';
+        const animali = cards.filter((element) => {
+            if(this.value == element.type){
+                return true;
+            }else{
+                return false;
+            }
+        });
+       animali.forEach((element) => {
+        cardBoxDom.innerHTML += newCard(element);
+       });
+    }else if(this.value == 'vegetable'){
+        cardBoxDom.innerHTML = '';
+        const verdure = cards.filter((element) => {
+            if(this.value == element.type){
+                return true;
+            }else{
+                return false;
+            }
+        });
+       verdure.forEach((element) => {
+        cardBoxDom.innerHTML += newCard(element);
+       });
+    } else if(this.value == 'user'){
+        cardBoxDom.innerHTML = '';
+        const utente = cards.filter((element) => {
+            if(this.value == element.type){
+                return true;
+            }else{
+                return false;
+            }
+        });
+       utente.forEach((element) => {
+        cardBoxDom.innerHTML += newCard(element);
+       });
+    } else if(this.value == 'all'){
+        cardBoxDom.innerHTML = '';
+        cards.forEach((element) => {
+        cardBoxDom.innerHTML += newCard(element);
+       });
+    }
+
+});
+
+function newCard(element){
+   const card =  `<div class="card">
                     <div class="card-icon">
                         <i style="color:${element.color};" class="fa-solid ${element.prefix}${element.name}"></i>
                     </div>
                     <div class="card-name">${element.name}</div>
                 </div>`;
+    return card;
+};
 
+
+
+/*
+function optionCards(element){
     
-    cardBoxDom.innerHTML += card;
-});
-
-
+        const animali = cards.filter((element) => {
+            if(this.value == element.type){
+                return true;
+            }else{
+                return false;
+            }
+        });
+       animali.forEach((element) => {
+        cardBoxDom.innerHTML += newCard(element);
+       });
+};
+*/
 
 
 

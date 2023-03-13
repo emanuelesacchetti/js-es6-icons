@@ -112,4 +112,107 @@ const cards = [
 		color: 'blue'
 	}
 ];
+console.log(cards.length);
+const selettore = document.getElementById('select');
+let cardBoxDom = document.querySelector('.card-box');
+
+
+cards.forEach(element => {
+    const card =  `<div class="card">
+                    <div class="card-icon">
+                        <i style="color:${element.color};" class="fa-solid ${element.prefix}${element.name}"></i>
+                    </div>
+                    <div class="card-name">${element.name}</div>
+                </div>`;
+
+    
+    cardBoxDom.innerHTML += card;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+cards.forEach(element => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const cardIcon = document.createElement('div');
+    cardIcon.classList.add('card-icon');
+    cardIcon.style.color = `${element.color}`
+    cardIcon.innerHTML = `<i class="fa-solid ${element.prefix}${element.name}"></i>`;
+
+    const cardName = document.createElement('div');
+    cardName.classList.add('card-name');
+    cardName.innerHTML = `${element.name}`;
+
+    card.append(cardIcon);
+    card.append(cardName);
+    cardBoxDom.innerHTML = (card);
+*/
+
+    
 

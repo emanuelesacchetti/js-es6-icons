@@ -116,61 +116,28 @@ const cards = [
 const selettore = document.getElementById('select');
 const cardBoxDom = document.querySelector('.card-box');
 
-for(let i = 0; i < cards.length; i++){
-    cards[i].color = `#${setColor()}`;
-}
-
 cards.forEach(element => {
+    element.color = `#${setColor()}`;
     const card = newCard(element);
-    //element.color = `#${setColor()}`;
     cardBoxDom.innerHTML += card;
 });
+creaSectionOption();
 
 selettore.addEventListener('change', function(){
 
-    if(this.value == 'animal'){
-        cardBoxDom.innerHTML = '';
-        const animali = cards.filter((element) => {
-            if(this.value == element.type){
-                return true;
-            }else{
-                return false;
-            }
-        });
-       animali.forEach((element) => {
-        cardBoxDom.innerHTML += newCard(element);
-       });
-    }else if(this.value == 'vegetable'){
-        cardBoxDom.innerHTML = '';
-        const verdure = cards.filter((element) => {
-            if(this.value == element.type){
-                return true;
-            }else{
-                return false;
-            }
-        });
-       verdure.forEach((element) => {
-        cardBoxDom.innerHTML += newCard(element);
-       });
-    } else if(this.value == 'user'){
-        cardBoxDom.innerHTML = '';
-        const utente = cards.filter((element) => {
-            if(this.value == element.type){
-                return true;
-            }else{
-                return false;
-            }
-        });
-       utente.forEach((element) => {
-        cardBoxDom.innerHTML += newCard(element);
-       });
-    } else if(this.value == 'all'){
-        cardBoxDom.innerHTML = '';
-        cards.forEach((element) => {
-        cardBoxDom.innerHTML += newCard(element);
-       });
-    }
+    cardBoxDom.innerHTML = '';
+    cards.filter((element) => {
+        if(this.value == element.type){
+            cardBoxDom.innerHTML += newCard(element);
+        }
 
+        if(this.value == 'all'){
+            cardBoxDom.innerHTML = '';
+            cards.forEach(element => {
+                cardBoxDom.innerHTML += newCard(element);
+            })
+        }
+    });
 });
 
 function newCard(element){
@@ -183,32 +150,25 @@ function newCard(element){
     return card;
 };
 
-
-
-/*
-function optionCards(element){
-    
-        const animali = cards.filter((element) => {
-            if(this.value == element.type){
-                return true;
-            }else{
-                return false;
-            }
-        });
-       animali.forEach((element) => {
-        cardBoxDom.innerHTML += newCard(element);
-       });
-};
-*/
-
-
-
 function setColor(){
   const randomColor = Math.floor(Math.random()*16777215).toString(16);
   return randomColor;
 };
 
+function creaSectionOption(){
+    selectorTypes = [];
+    selettore.innerHTML += `<option value="all">All</option>`
+    cards.forEach((element) => {
+        if(!selectorTypes.includes(element.type)){
+            selectorTypes.push(element.type);
+            selettore.innerHTML += `<option value="${element.type}">${element.type}</option>`
+        }
+    })
+};
 
 
-    
+
+
+
+                            
 

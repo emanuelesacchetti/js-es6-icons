@@ -116,9 +116,13 @@ const cards = [
 const selettore = document.getElementById('select');
 const cardBoxDom = document.querySelector('.card-box');
 
+for(let i = 0; i < cards.length; i++){
+    cards[i].color = `#${setColor()}`;
+}
 
 cards.forEach(element => {
     const card = newCard(element);
+    //element.color = `#${setColor()}`;
     cardBoxDom.innerHTML += card;
 });
 
@@ -198,12 +202,12 @@ function optionCards(element){
 */
 
 
-/*
+
 function setColor(){
   const randomColor = Math.floor(Math.random()*16777215).toString(16);
   return randomColor;
-}
-*/
+};
+
 
 
     
